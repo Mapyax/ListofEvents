@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootDescriptor Include="Roots.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.18" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.18" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Pages\CultureView.axaml.cs">
+      <DependentUpon>CultureView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\EducationView.axaml.cs">
+      <DependentUpon>EducationView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\ExcursionsView.axaml.cs">
+      <DependentUpon>ExcursionsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\KidsView.axaml.cs">
+      <DependentUpon>KidsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\LifestyleView.axaml.cs">
+      <DependentUpon>LifestyleView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\OnlineView.axaml.cs">
+      <DependentUpon>OnlineView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\PartyView.axaml.cs">
+      <DependentUpon>PartyView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\ShowView.axaml.cs">
+      <DependentUpon>ShowView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Pages\SportView.axaml.cs">
+      <DependentUpon>SportView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Category_image\" />
+    <Folder Include="Assets\Event_image\" />
+  </ItemGroup>
+</Project>
